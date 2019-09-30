@@ -20,6 +20,11 @@ const routes = [
       ...settings,
       ...user
     ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('layouts/Login.vue')
   }
 ]
 
