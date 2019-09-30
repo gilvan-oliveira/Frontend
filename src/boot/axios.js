@@ -1,4 +1,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-Vue.prototype.$axios = axios
+const http = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com/'
+})
+
+Vue.prototype.$axios = http

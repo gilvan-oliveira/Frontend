@@ -5,7 +5,7 @@ export default [
     meta: {
       add: 'sale-point-new'
     },
-    component: () => import('src/pages/sale-point/SalePointForm')
+    component: () => import('src/pages/sale-point/SalePointList')
   },
   {
     name: 'sale-point-new',

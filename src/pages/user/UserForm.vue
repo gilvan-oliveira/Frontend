@@ -20,7 +20,7 @@
             <q-input square outlined v-model="model.login" label="Usuário*" />
           </div>
           <div class="col">
-            <q-input square outlined v-model="model.login" label="Senha*" />
+            <q-input square outlined v-model="model.password" label="Senha*" />
           </div>
         </div>
         <div class="row q-pb-md q-col-gutter-md">
@@ -31,7 +31,7 @@
       </q-card-section>
       <q-card-actions align="center">
         <q-btn color="negative" label="Cancelar"/>
-        <q-btn color="primary" label="Salvar"/>
+        <q-btn color="primary" label="Salvar" @click="saveData()"/>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -65,15 +65,20 @@ export default {
       }
     }
   },
-  computed: {
-    profit: {
-      get () {
-        let ret = 0
-        if (this.model.price && this.model.price) {
-          ret = parseFloat(this.model.price) - parseFloat(this.model.cost)
-        }
-        return ret
-      }
+  beforeMount () {
+    this.loadItems(this.$route.params)
+  },
+  methods: {
+    saveData () {
+      console.log('salvar dados, ', this.model)
+    },
+    loadItems ({ id }) {
+      this.$axios.get(`users/${id}`).then(res => {
+        let user = res.data
+
+        this.model.name = user.name
+        this.model.login = user.username
+      })
     }
   }
 }

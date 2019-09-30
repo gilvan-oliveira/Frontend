@@ -2,7 +2,7 @@
   <q-page padding>
     <q-card>
       <q-toolbar class="text-center">
-        <q-toolbar-title>Cadastro de Usuário</q-toolbar-title>
+        <q-toolbar-title>Perfil</q-toolbar-title>
       </q-toolbar>
 
       <q-separator></q-separator>
