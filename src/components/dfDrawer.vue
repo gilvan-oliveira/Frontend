@@ -1,5 +1,7 @@
 <template>
   <q-drawer
+    elevated
+    content-class="bg-drawer"
     show-if-above
   >
     <q-scroll-area class="text-secondary" style="height: calc(100%); border-right: 1px solid #ddd">
@@ -97,3 +99,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .bg-drawer {
+    background: lighten($primary, 40%);
+  }
+</style>

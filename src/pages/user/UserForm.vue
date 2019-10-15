@@ -73,12 +73,14 @@ export default {
       console.log('salvar dados, ', this.model)
     },
     loadItems ({ id }) {
-      this.$axios.get(`users/${id}`).then(res => {
-        let user = res.data
+      if (id) {
+        this.$axios.get(`users/${id}`).then(res => {
+          let user = res.data
 
-        this.model.name = user.name
-        this.model.login = user.username
-      })
+          this.model.name = user.name
+          this.model.login = user.username
+        })
+      }
     }
   }
 }

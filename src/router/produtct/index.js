@@ -10,11 +10,17 @@ export default [
   {
     name: 'product-new',
     path: '/products/new',
+    meta: {
+      title: 'Novo produto'
+    },
     component: () => import('src/pages/product/ProdutcForm')
   },
   {
     name: 'product-edit',
     path: '/products/:id',
+    meta: {
+      title: 'Editar produto'
+    },
     component: () => import('src/pages/product/ProdutcForm')
   }
 ]

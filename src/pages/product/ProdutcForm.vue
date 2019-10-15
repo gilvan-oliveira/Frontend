@@ -2,7 +2,7 @@
   <q-page padding>
     <q-card>
       <q-toolbar class="text-center">
-        <q-toolbar-title>Cadastro de Produto</q-toolbar-title>
+        <q-toolbar-title class="text-primary">{{$route.meta.title}}</q-toolbar-title>
       </q-toolbar>
 
       <q-separator></q-separator>
@@ -14,7 +14,7 @@
         </div>
         <div class="row q-pb-md q-col-gutter-md">
           <div class="col">
-            <q-input square outlined v-model="model.cost" label="Preço de compra*" />
+            <q-input square outlined v-model.lazy="model.cost" v-money="model.cost" label="Preço de compra*" />
           </div>
           <div class="col">
             <q-input square outlined v-model="model.price" label="Preço de venda*" />
@@ -35,7 +35,7 @@
         </div>
       </q-card-section>
       <q-card-actions align="center">
-        <q-btn color="negative" label="Cancelar"/>
+        <q-btn color="negative" label="Cancelar" @click="$router.back()"/>
         <q-btn color="primary" label="Salvar"/>
       </q-card-actions>
     </q-card>

@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh Lpr lFf">
+  <q-layout view="LHh Lpr lFf">
     <q-header>
       <q-toolbar>
         <q-toolbar-title>
@@ -7,8 +7,6 @@
             Controle de Estoque
           </q-toolbar-title>
         </q-toolbar-title>
-
-        <div>Nome do Usuário</div>
       </q-toolbar>
     </q-header>
     <df-drawer />
