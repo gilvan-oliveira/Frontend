@@ -6,6 +6,12 @@
       </q-toolbar>
 
       <q-separator></q-separator>
+      <div class="text-white bg-red">
+          <b v-if="errors.length">Por favor, corrija o(s) seguinte(s) erro(s):</b>
+          <ul class="text-white bg-red">
+            <li v-for="(error, i) in errors" :key="i">{{ error }}</li>
+          </ul>
+        </div>
       <q-card-section>
         <div class="row q-pb-md q-col-gutter-md">
           <div class="col-12">
@@ -17,8 +23,8 @@
         </div>
       </q-card-section>
       <q-card-actions align="center">
-        <q-btn color="negative" label="Cancelar"/>
-        <q-btn color="primary" label="Salvar"/>
+        <q-btn color="negative" label="Cancelar" @click="$router.back()"/>
+        <q-btn color="primary" label="Salvar" @click="salveItem()"/>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -48,8 +54,29 @@ export default {
   data () {
     return {
       model: {
-        name: ''
+        name: '',
+        description: ''
+      },
+      errors: []
+    }
+  },
+  beforeMount () {
+    this.loadItems(this.$route.params)
+  },
+  methods: {
+    salveItem () {
+      this.errors = []
+      if (!this.model.name) {
+        this.errors.push('Nome é obrigatório')
       }
+    },
+    loadItems ({ id }) {
+      this.$axios.get(`users/${id}`).then(res => {
+        let user = res.data
+
+        this.model.name = user.name
+        this.model.description = user.email
+      })
     }
   }
 }

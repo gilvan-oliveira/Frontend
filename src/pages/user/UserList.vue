@@ -10,8 +10,8 @@
         <td>{{item.telefone}}</td>
         <td>{{item.endereco}}</td>
         <td class="row">
-          <q-btn class="col" icon="edit" round color="primary" @click="editItem(item)"/>
-          <q-btn class="col" icon="remove" round color="negative" @click="removeItem(item)"/>
+          <q-btn icon="edit" round color="primary" @click="editItem(item)"/>&nbsp;&nbsp;&nbsp;
+          <q-btn icon="remove" round color="negative" @click="removeItem(item)"/>
         </td>
       </tr>
     </table>
@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       table: {
-        header: ['Nome', 'Email', 'Telefone', 'Endereço'],
+        header: ['Nome', 'Usuário', 'Perfil', 'Status', 'Gerenciar'],
         data: []
       }
     }
